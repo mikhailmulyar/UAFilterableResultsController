@@ -19,4 +19,5 @@ Pod::Spec.new do |s|
   s.exclude_files = 'Code/UAFilterableResultsController/UAAppDelegate.*', 'Code/UAFilterableResultsController/main.m', 'Code/UAFilterableResultsController/UAViewController.*'
   s.requires_arc = true
   s.source_files = 'Code/UAFilterableResultsController/*.{h,m}'
+  s.dependency 'ReactiveCocoa', '~> 2.3'
 end

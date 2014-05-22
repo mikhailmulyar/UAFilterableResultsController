@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <ReactiveCocoa/ReactiveCocoa.h>
 #import "UAFilterableResultsControllerDelegate.h"
 #import "UAFilter.h"
 
@@ -41,6 +42,27 @@
  * by this kay path matches. Set this to nil to rely purely on isEqual:.
 **/
 @property (nonatomic, strong) NSString *primaryKeyPath;
+
+/**
+* A Key Path to the property according to each data will be sorted
+*
+* When sortingKeyPath is set objects will be added to array in specific index calculated according
+* sortingKeyPath. Insert methods will ignore index path parameters. Move methods will do nothing.
+**/
+- (void) setSortingKeyPath:(NSString *)sortingKeyPath ascending:(BOOL)ascending;
+
+/**
+* Key Paths to the properties which will be observed.
+* When any of those properties of any object will be changed delegate will receive update notification
+* for that object
+**/
+@property (nonatomic, strong) NSArray *keyPathsToObserve;
+
+/**
+* If this property set update notifications won't be send immediately,
+* but will be buffered and send after buffer time passed
+**/
+@property (nonatomic, assign) CGFloat observeBufferTime;
 
 /**
  * Your delegate method.
@@ -122,6 +144,45 @@
  * @param   object                  An object to be added to the arrays.
 **/
 - (void)addObject:(id)object inSection:(NSInteger)sectionIndex;
+
+
+/**
+* Insert an object to the data arrays at specified index.
+*
+* Use it only for one dimensional
+*
+* @param   object                  An object to be added to the arrays.
+**/
+- (void)insertObject:(id)object atIndex:(NSInteger)index;
+
+
+/**
+* Insert an object to the data arrays at specified index and section.
+*
+* Use it only for two dimensional
+*
+* @param   object                  An object to be added to the arrays.
+**/
+- (void)insertObject:(id)object atIndex:(NSInteger)index inSection :(NSInteger)sectionIndex;
+
+
+/**
+* Moves an object to new index.
+*
+* Use it only for one dimensional
+*
+* @param   object                  An object to be added to the arrays.
+**/
+- (void)moveObject:(id)object toIndex:(NSInteger)newIndex;
+
+/**
+* Moves an object to new index.
+*
+* Use it only for two dimensional
+*
+* @param   object                  An object to be added to the arrays.
+**/
+- (void) moveObjectAtIndexPath:(NSIndexPath *)path toIndexPath:(NSIndexPath *)newIndexPath;
 
 /**
  * Removes an object from the array.

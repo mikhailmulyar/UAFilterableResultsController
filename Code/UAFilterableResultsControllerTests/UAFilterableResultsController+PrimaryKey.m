@@ -11,7 +11,7 @@
 
 @interface UAFilterableResultsController (TestingMethods)
 
-- (BOOL)isObject:(id)object equalToObject:(id)object usingKeyPath:(NSString *)keyPath;
+- (BOOL)isObject:(id)object equalToObject:(id)anotherObject usingKeyPath:(NSString *)keyPath;
 
 @end
 
