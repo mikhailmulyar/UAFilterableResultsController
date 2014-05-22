@@ -15,7 +15,7 @@ Pod::Spec.new do |s|
   s.license      = 'MIT'
   s.author       = { "Unsigned Apps" => "uafrc@unsignedapps.com" }
   s.source       = { :git => "https://github.com/unsignedapps/UAFilterableResultsController.git", :tag => "1.0.1" }
-  s.platform     = :ios, '7.0'
+  s.platform     = :ios, '6.0'
   s.exclude_files = 'Code/UAFilterableResultsController/UAAppDelegate.*', 'Code/UAFilterableResultsController/main.m', 'Code/UAFilterableResultsController/UAViewController.*'
   s.requires_arc = true
   s.source_files = 'Code/UAFilterableResultsController/*.{h,m}'
