@@ -1215,7 +1215,12 @@
 
 #pragma mark - Delegate Notifications
 
-- (void) notifyBeginChanges
+- (void)beginUpdates
+{
+    [self notifyBeginChanges];
+}
+
+- (void)notifyBeginChanges
 {
 	// not until we've loaded
 	if (![self tableViewHasLoaded])
@@ -1273,7 +1278,12 @@
 		[delegate filterableResultsControllerShouldReload:self];
 }
 
-- (void) notifyEndChanges
+- (void)endUpdates
+{
+    [self notifyEndChanges];
+}
+
+- (void)notifyEndChanges
 {
 	// not until we've loaded
 	if (![self tableViewHasLoaded])
