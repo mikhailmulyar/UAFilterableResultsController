@@ -788,7 +788,9 @@
 
 - (id) objectAtIndexPath:(NSIndexPath *)indexPath
 {
-	NSAssert(self.UAData != nil, @"Cannot find object in nil data.");
+    if (self.UAData == nil)
+        return nil;
+    
 	NSParameterAssert(indexPath != nil);
 
 	// 2D Arrays
@@ -871,7 +873,7 @@
 
 - (NSIndexPath *) indexPathOfObject:(id)object inArray:(NSArray *)data
 {
-	return [self indexPathOfObject:object inArray:self.UAData usingKeyPath:self.primaryKeyPath];
+    return [self indexPathOfObject:object inArray:data usingKeyPath:self.primaryKeyPath];
 }
 
 - (NSIndexPath *) indexPathOfObject:(id)object inArray:(NSArray *)data usingKeyPath:(NSString *)keyPath
