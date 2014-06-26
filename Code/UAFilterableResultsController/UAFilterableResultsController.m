@@ -15,7 +15,6 @@
 @interface UAFilterableResultsController ()
 
 @property (nonatomic, strong) NSMutableArray *UAData;
-@property (nonatomic) BOOL                   tableViewHasLoaded;
 @property (nonatomic) NSInteger              changeBatches;
 
 @property (nonatomic, strong) NSMutableArray *UAAppliedFilters;

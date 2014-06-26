@@ -76,6 +76,10 @@
 **/
 @property (nonatomic, weak) id<UAFilterableResultsControllerDelegate> delegate;
 
+
+@property (nonatomic) BOOL tableViewHasLoaded;
+
+
 /**
  * Initialises the UAFilterableResultsController with a key path to determine the primary key, and a delegate.
  *
