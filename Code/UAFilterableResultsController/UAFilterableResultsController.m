@@ -632,6 +632,23 @@
 		[self removeObjectAtIndexPath:indexPath];
 }
 
+- (void) updateObject:(id)anObject
+{
+	NSAssert(self.UAData != nil, @"Cannot replace object in nil data.");
+	NSParameterAssert(anObject != nil);
+    
+	// find the object
+	NSIndexPath *indexPath = [self indexPathOfObject:anObject];
+	if (indexPath != nil)
+    {
+        if (![self isFiltered])
+			[self notifyChangedObject:anObject
+						  atIndexPath:indexPath
+						forChangeType:UAFilterableResultsChangeUpdate
+						 newIndexPath:indexPath];
+    }
+}
+
 - (void) replaceObject:(id)anObject
 {
 	NSAssert(self.UAData != nil, @"Cannot replace object in nil data.");

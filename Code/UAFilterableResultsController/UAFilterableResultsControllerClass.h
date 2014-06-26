@@ -219,6 +219,13 @@
 - (void)removeObjectAtIndexPath:(NSIndexPath *)indexPath;
 
 /**
+ * Updates the specified object sending notifications to delegate
+ *
+ * @param   anObject                The object to be replaced.
+ **/
+- (void) updateObject:(id)anObject
+
+/**
  * Replaces the specified object with an updated version.
  *
  * If the specified object cannot be found in the arrays nothing will happen. The -primaryKeyPath will
