@@ -223,7 +223,7 @@
  *
  * @param   anObject                The object to be replaced.
  **/
-- (void) updateObject:(id)anObject
+- (void) updateObject:(id)anObject;
 
 /**
  * Replaces the specified object with an updated version.
