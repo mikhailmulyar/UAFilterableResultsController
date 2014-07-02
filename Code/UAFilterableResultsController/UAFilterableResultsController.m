@@ -406,6 +406,13 @@
 
 	NSIndexPath *indexPath = [self indexPathOfObject:object];
 
+    if (self.primaryKeyPath && !indexPath)
+    {
+        id aValue = [object valueForKeyPath:self.primaryKeyPath];
+
+        indexPath = [self indexPathOfObjectWithPrimaryKey:aValue];
+    }
+    
 	if (indexPath)
 		return;
 
@@ -493,6 +500,13 @@
 	if (indexPath)
 		return;
 
+    if (self.primaryKeyPath && !indexPath)
+    {
+        id aValue = [object valueForKeyPath:self.primaryKeyPath];
+        
+        indexPath = [self indexPathOfObjectWithPrimaryKey:aValue];
+    }
+    
 	if (self.sortingComparator)
 	{
 		[self addObject:object];
