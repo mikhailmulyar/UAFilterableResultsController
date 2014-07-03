@@ -282,12 +282,11 @@
 	if ([self isArrayTwoDimensional:data])
 	{
 		NSMutableArray *replacementData = [[NSMutableArray alloc] initWithCapacity:[data count]];
-		for (NSArray   *section in data)
+		for (NSArray *section in data)
 		{
-			if (self.sortingComparator)
-				[self sortedArray:section];
+			NSArray *sortedSection = self.sortingComparator ? [self sortedArray:section] : section;
 
-			[replacementData addObject:[[NSMutableArray alloc] initWithArray:section]];
+			[replacementData addObject:[[NSMutableArray alloc] initWithArray:sortedSection]];
 		}
 
 		if (hasExistingData)
