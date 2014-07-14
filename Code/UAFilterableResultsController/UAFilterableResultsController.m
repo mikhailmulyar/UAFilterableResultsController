@@ -186,7 +186,14 @@
 				if (i != path.row)
 				{
 					[section removeObjectAtIndex:(NSUInteger) path.row];
-					[section insertObject:object atIndex:i];
+
+					if (i < section.count)
+						[section insertObject:object atIndex:i];
+					else
+					{
+						[section addObject:object];
+						i = section.count - 1;
+					}
 				}
 
 				newPath = [NSIndexPath indexPathForRow:i inSection:path.section];
@@ -200,7 +207,14 @@
 				if (i != path.row)
 				{
 					[self.UAData removeObjectAtIndex:(NSUInteger) path.row];
-					[self.UAData insertObject:object atIndex:i];
+
+					if (i < self.UAData.count)
+						[self.UAData insertObject:object atIndex:i];
+					else
+					{
+						[self.UAData addObject:object];
+						i = self.UAData.count - 1;
+					}
 				}
 
 				newPath = [NSIndexPath indexPathForRow:i inSection:path.section];
